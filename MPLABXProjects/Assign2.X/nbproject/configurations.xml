@@ -15,6 +15,7 @@
       <itemPath>Stepper.h</itemPath>
       <itemPath>SPI.h</itemPath>
       <itemPath>Scan.h</itemPath>
+      <itemPath>ser.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -34,6 +35,7 @@
       <itemPath>Stepper.c</itemPath>
       <itemPath>SPI.c</itemPath>
       <itemPath>Scan.c</itemPath>
+      <itemPath>ser.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

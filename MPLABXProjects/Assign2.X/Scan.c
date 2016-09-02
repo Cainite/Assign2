@@ -8,7 +8,7 @@
 
 #include "Scan.h"
 
-void singleScan(void){
+void scan(void){
     setupLCD();
     unsigned int closestStepPos = stepMm[0];
     unsigned int closestStepDisc = stepMm[1];
@@ -16,7 +16,7 @@ void singleScan(void){
     closestStepPos = 0;
     closestStepDisc = 0
     i = 0;        
-    
+    spi_transfer(0b00001101);                               //
     while (i <= 400){
         spi_transfer(0b00001101);
         int adcVal = getADCmm();
@@ -28,23 +28,9 @@ void singleScan(void){
     } 
     SM_STEP();
     __delay_ms(1);
-        
+    i++;    
     }
     ccwMovStepMotor(400 - closestStepPos);           // turn the stepper to the closest object
     spi_transfer(0b00001100);                        //de energise
-    lcdSetCursor(0);
-    lcd_WriteData('S');
-    lcd_WriteData('T');
-    lcd_WriteData('E');
-    lcd_WriteData('P');
-    lcd_WriteData(' ');
-    lcdWrite4DigitBcd(closestStepPos,0);            //display the step at which the object is closest
-    lcdSetCursor(40);
-    lcdWrite4DigitBcd(closestStepDisc,0);           //display the distance at which the object is closest
-    lcd_WriteData(' ');
-    lcd_WriteData('M');
-    lcd_WriteData('M');
-    
-    __delay_ms(5000);
 }
 

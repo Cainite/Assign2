@@ -15,8 +15,6 @@ void ccwMovStepMotor(int numberOfSteps) {
         i++;                                                                //Increment the counter
         }
     stepPos = stepPos+1; // add by 1 from the stepPos total
-    lcdSetCursor(40);//configure to print on second line left justified
-    lcdWrite4DigitBcd(stepPos,1); //print current stepper position live with no sign
 }
 
 
@@ -29,8 +27,6 @@ void cwMovStepMotor(int numberOfSteps) {
         i++;                                                                //Increment the counter
     }
     stepPos = stepPos-1; // add by 1 from the stepPos total
-    lcdSetCursor(40);//configure to print on second line
-    lcdWrite4DigitBcd(stepPos,1);//print current stepper position live with no sign
 }
 
 

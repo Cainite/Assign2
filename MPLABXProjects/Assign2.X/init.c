@@ -21,6 +21,8 @@ void init(void){
     TRISC = 0b11010000; // setup ports C for stepper motor 
     PORTC = 0b00000011;
     
+    PEIE = 1;						//enable peripheral interrupt
+    GIE = 1;
     
     OPTION_REG = 0B00000100;        
     TMR0 = TMR0_VAL;
@@ -30,7 +32,7 @@ void init(void){
     unsigned char controlByte = 0b00001101;
     spi_transfer(controlByte);
     
-    initStepMotor ();
+    ser_init();
     setupADC();
 } 
 

@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c buttListener.c debounce.c idle.c init.c interrupt.c lcd.c Main.c Stepper.c SPI.c Scan.c
+SOURCEFILES_QUOTED_IF_SPACED=adc.c buttListener.c debounce.c idle.c init.c interrupt.c lcd.c Main.c Stepper.c SPI.c Scan.c ser.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.p1 ${OBJECTDIR}/buttListener.p1 ${OBJECTDIR}/debounce.p1 ${OBJECTDIR}/idle.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/SPI.p1 ${OBJECTDIR}/Scan.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.p1.d ${OBJECTDIR}/buttListener.p1.d ${OBJECTDIR}/debounce.p1.d ${OBJECTDIR}/idle.p1.d ${OBJECTDIR}/init.p1.d ${OBJECTDIR}/interrupt.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/Main.p1.d ${OBJECTDIR}/Stepper.p1.d ${OBJECTDIR}/SPI.p1.d ${OBJECTDIR}/Scan.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.p1 ${OBJECTDIR}/buttListener.p1 ${OBJECTDIR}/debounce.p1 ${OBJECTDIR}/idle.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/SPI.p1 ${OBJECTDIR}/Scan.p1 ${OBJECTDIR}/ser.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc.p1.d ${OBJECTDIR}/buttListener.p1.d ${OBJECTDIR}/debounce.p1.d ${OBJECTDIR}/idle.p1.d ${OBJECTDIR}/init.p1.d ${OBJECTDIR}/interrupt.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/Main.p1.d ${OBJECTDIR}/Stepper.p1.d ${OBJECTDIR}/SPI.p1.d ${OBJECTDIR}/Scan.p1.d ${OBJECTDIR}/ser.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.p1 ${OBJECTDIR}/buttListener.p1 ${OBJECTDIR}/debounce.p1 ${OBJECTDIR}/idle.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/SPI.p1 ${OBJECTDIR}/Scan.p1
+OBJECTFILES=${OBJECTDIR}/adc.p1 ${OBJECTDIR}/buttListener.p1 ${OBJECTDIR}/debounce.p1 ${OBJECTDIR}/idle.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/Main.p1 ${OBJECTDIR}/Stepper.p1 ${OBJECTDIR}/SPI.p1 ${OBJECTDIR}/Scan.p1 ${OBJECTDIR}/ser.p1
 
 # Source Files
-SOURCEFILES=adc.c buttListener.c debounce.c idle.c init.c interrupt.c lcd.c Main.c Stepper.c SPI.c Scan.c
+SOURCEFILES=adc.c buttListener.c debounce.c idle.c init.c interrupt.c lcd.c Main.c Stepper.c SPI.c Scan.c ser.c
 
 
 CFLAGS=
@@ -175,6 +175,14 @@ ${OBJECTDIR}/Scan.p1: Scan.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Scan.d ${OBJECTDIR}/Scan.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Scan.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/ser.p1: ser.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ser.p1.d 
+	@${RM} ${OBJECTDIR}/ser.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/ser.p1  ser.c 
+	@-${MV} ${OBJECTDIR}/ser.d ${OBJECTDIR}/ser.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/adc.p1: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -263,6 +271,14 @@ ${OBJECTDIR}/Scan.p1: Scan.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Scan.p1  Scan.c 
 	@-${MV} ${OBJECTDIR}/Scan.d ${OBJECTDIR}/Scan.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Scan.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ser.p1: ser.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ser.p1.d 
+	@${RM} ${OBJECTDIR}/ser.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/ser.p1  ser.c 
+	@-${MV} ${OBJECTDIR}/ser.d ${OBJECTDIR}/ser.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

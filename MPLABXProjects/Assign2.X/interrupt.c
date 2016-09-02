@@ -14,7 +14,7 @@ void interrupt isr(void){
 
         rtcCounter++; // Increment counter 
         
-        if(rtcCounter % 500 == 0){
+        if(rtcCounter % 1000 == 0){
             rtcCounter = 0;    //reset RTC Counter
             rtcFlag500MS = 1;
             RB0 =!RB0; //Toggle led 

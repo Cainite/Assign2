@@ -11,7 +11,7 @@
 
 extern unsigned int stepMm[2];
 
-void singleScan(void);
+void scan(void);
 
 volatile int i;
 

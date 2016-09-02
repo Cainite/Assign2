@@ -11,6 +11,7 @@
 #include "Stepper.h"
 #include "debounce.h"
 #include "buttListener.h"
+#include "Scan.h"
 
 signed int stepPos=0;
 int j=0;//check for odd or even, move cw when odd, move ccw when even
@@ -20,7 +21,7 @@ void buttListener(void){
        
     if(pb1Pressed){
         pb1Pressed = 0;// clear the pressed flag
-        cwMovStepMotor (1); //move half step clockwise
+        scan(); //move half step clockwise
     }
         
     if(pb2Pressed){
